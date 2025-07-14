@@ -13,7 +13,9 @@
     "type-check": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "clean": "rimraf dist",
-    "start-dev": "node scripts/start-dev.js"
+    "start-dev": "node scripts/start-dev.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "cheerio": "^1.1.0",
@@ -41,7 +43,8 @@
     "tailwindcss": "^4.1.11",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4"
+    "vite": "^7.0.4",
+    "gh-pages": "^6.0.0"
   },
   "bin": {
     "run-site": "scripts/start-dev.js"
@@ -64,5 +67,6 @@
       "test/**/*",
       "scripts/validate-env.js"
     ]
-  }
+  },
+  "homepage": "https://eatham532.github.io/StudyCheckList/"
 }
