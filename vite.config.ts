@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/StudyCheckList/', // Set this to your repo name
+  base: '/StudyCheckListDEMO/', // Set this to your repo name
   plugins: [react()],
   resolve: {
     alias: {
