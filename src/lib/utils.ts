@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 import * as cheerio from 'cheerio';
-import type { ProgressDocument, Topic, SubTopic, ContentSection, ProgressItem, ProgressStatus } from './types';
+import type { ProgressDocument, Topic, SubTopic, ContentSection, ProgressItem } from './types';
 
 function slugify(str: string): string {
   return str
@@ -35,6 +35,7 @@ export function parseSyllabusFromHtml(html: string): ProgressDocument {
 
     // Find the first h3 with text 'Subtopics'
     let ptr = $(h2).next();
+    // @ts-ignore
     let foundSubtopics = false;
     let subtopicCodes: { code: string, title: string }[] = [];
     while (ptr.length && !ptr.is('h2')) {

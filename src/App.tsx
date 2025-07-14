@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import mammothPlus from 'mammoth-plus';
 import { parseSyllabusFromHtml } from '@/lib/utils';
-import type { ProgressDocument, Topic, SubTopic, ProgressItem } from '@/lib/types';
+import type { ProgressDocument, ProgressItem } from '@/lib/types';
 import './App.css'
 
 const STORAGE_KEY = 'progressData';
@@ -296,7 +296,7 @@ function App() {
                     .filter(sub => sub.contentSections && sub.contentSections.some((section) =>
                       section.items && section.items
                         .filter(item => filterChecked === '' || item.status[filterChecked])
-                        .some(item => true)
+                        .length > 0
                     ))
                     .map((sub) => (
                       <div key={sub.code} className="mb-8">
@@ -309,7 +309,7 @@ function App() {
                         {sub.contentSections
                           .filter(section => section.items && section.items
                             .filter(item => filterChecked === '' || item.status[filterChecked])
-                            .some(item => true)
+                            .length > 0
                           )
                           .map((section) => (
                             <div key={section.id} className="mb-6">
